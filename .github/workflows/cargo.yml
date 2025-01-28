@@ -1,8 +1,7 @@
 name: Cargo-General
-on:
-  pull_request:
-    paths:
-      - 'Cargo.lock'
+
+on: workflow_dispatch
+
 jobs:
   cargo-deny:
     runs-on: ubuntu-latest

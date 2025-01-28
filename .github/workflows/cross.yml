@@ -1,19 +1,6 @@
 name: CrossCompiling
 
-on:
-  push:
-    paths-ignore:
-      - 'ansible/**'
-      - 'doc/**'
-      - 'sphinx/**'
-      - 'scripts/**'
-    branches:
-      - 'master'
-      - 'lts/**'
-  pull_request:
-    branches:
-      - 'master'
-      - 'lts/**'
+on: workflow_dispatch
 
 jobs:
   build:

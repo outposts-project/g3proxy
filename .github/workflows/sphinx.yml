@@ -1,12 +1,6 @@
 name: Sphinx-Doc
 
-on:
-  push:
-    paths:
-      - 'sphinx/**'
-  pull_request:
-    paths:
-      - 'sphinx/**'
+on: workflow_dispatch
 
 jobs:
   build:
