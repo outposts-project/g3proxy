@@ -1,0 +1,12 @@
+services:
+  g3proxy:
+    container_name: g3proxy
+    image: ghcr.io/outposts-project/g3proxy:latest # or ghcr.dockerproxy.net/outposts-project/g3proxy:latest for some country
+    ports:
+        - "8080:8080"
+    volumes:
+        - ./g3proxy.yaml:/etc/g3proxy/g3proxy.yaml
+        - ./dynamic_users.json:/etc/g3proxy/dynamic_users.json
+    working_dir: /etc/g3proxy
+    command: -c /etc/g3proxy/g3proxy.yaml
+    restart: unless-stopped

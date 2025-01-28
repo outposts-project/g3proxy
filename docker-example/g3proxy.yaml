@@ -1,0 +1,36 @@
+---
+runtime:
+  thread_number: 2
+
+log: stdout
+
+server:
+  - name: http
+    escaper: default
+    type: http_proxy
+    listen:
+      address: "[::]:8080"
+    tls_client: {}
+
+resolver:
+  - name: default
+    type: fail_over
+    primary: alidns
+    standby: dnspod
+  - name: alidns
+    type: c-ares
+    server: 223.5.5.5 223.6.6.6
+  - name: dnspod
+    type: c-ares
+    server: 119.29.29.29
+
+escaper:
+  - name: default
+    type: direct_fixed
+    resolver: default
+
+user_group:
+  - name: default
+    source:
+      type: file
+      path: dynamic_users.json
